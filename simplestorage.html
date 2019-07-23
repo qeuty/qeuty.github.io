@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-<h3>Simple Storage dApp 예제</h3>
+<h3>Simple Storage dApp</h3>
 <ul>
   <li>컨트랙트 주소: <span id="contractAddr"></span></li>
   <li>내 어카운트 주소: <span id="accountAddr"></span></li>
@@ -37,7 +37,8 @@ HTML 소스<br>
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
 <script>
-var contractAddress = '0x7d14c7bd570f1d8a04ccd2d45747c185e08b4fc7';
+var contractAddress = '0x287c15c071ba6d946260a7aa51eeff0f121617e7';
+var accountAddress = '0xdF0F5fdEBd03E466321808170Da55e5B897E4940';
 var abi = [{"constant":false,"inputs":[{"name":"x","type":"uint256"}],"name":"set","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"}];
 var simpleStorageContract;
 var simpleStorage;
@@ -62,7 +63,7 @@ function startApp() {
   simpleStorage = simpleStorageContract.at(contractAddress);
   document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
   web3.eth.getAccounts(function(e,r){
-    document.getElementById('accountAddr').innerHTML = getLink(r[0]);
+    document.getElementById('accountAddr').innerHTML = getLink(accountAddress);
   });
 
   getValue();
